@@ -100,7 +100,7 @@ footer {
     color: #777;
 }
 
-/* Hero Section (landing.html) */
+/* Hero Section (index.html) */
 .hero {
     text-align: center;
     padding: 4rem 1rem;
@@ -133,7 +133,7 @@ footer {
     background: #0056b3;
 }
 
-/* "Find Your Path" Section (landing.html) */
+/* "Find Your Path" Section (index.html) */
 .path-section {
     background: #f9f9f9;
     padding: 4rem 1rem;
@@ -166,7 +166,7 @@ footer {
     color: #007bff;
 }
 
-/* link to my journey (landing.html) */
+/* link to my journey (index.html) */
 .personal-section {
     padding: 4rem 1rem;
 }
