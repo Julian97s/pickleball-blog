@@ -1,3 +1,19 @@
+/* Color Palette Variables */
+:root {
+    --yellow-primary: #ffbf00;
+    --yellow-dark: #E6AC00;
+    --yellow-light: #FFF9C4;
+    --green-primary: #72f960;
+    --green-dark: #689F38;
+    --green-light: #F1F8E9;
+    --navy-blue: #1565C0;
+    --text-dark: #333;
+    --text-medium: #555;
+    --text-light: #777;
+    --border-light: #eee;
+    --border-medium: #ddd;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,7 +23,7 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: var(--text-dark);
 }
 
 .container {
@@ -19,11 +35,22 @@ body {
 h1, h2, h3 {
     line-height: 1.2;
     margin-bottom: 1rem;
+    color: var(--navy-blue);
 }
 
 h1 { font-size: 2.8rem; }
 h2 { font-size: 2.2rem; }
-h3 { font-size: 1.5rem; }
+h3 {
+    font-size: 1.5rem;
+    margin-left: 1.5rem;
+}
+
+/* Indent content under h3 headings */
+h3 + p,
+h3 + ul,
+h3 + ol {
+    margin-left: 1.5rem;
+}
 
 p {
     margin-bottom: 1.2rem;
@@ -31,7 +58,11 @@ p {
 
 a {
     text-decoration: none;
-    color: #007bff; 
+    color: var(--green-primary);
+}
+
+a:hover {
+    color: var(--green-dark);
 }
 ul, ol {
     margin-bottom: 1.2rem;
@@ -39,7 +70,7 @@ ul, ol {
 }
 
 /* Placeholder styles for images */
-.collage-image, .personal-image, .split-image, .feature-image, .blog-card-image {
+.blog-card-image {
     background: #f0f0f0;
     border: 1px dashed #ccc;
     display: flex;
@@ -51,17 +82,32 @@ ul, ol {
     min-height: 200px;
 }
 
+.collage-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.split-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+
 .card-link {
     display: inline-block;
     margin-top: 1rem;
     font-weight: bold;
-    color: #007bff;
+    color: var(--green-primary);
 }
 
 /* Navigation Bar */
 header {
-    background: #fff;
-    border-bottom: 1px solid #eee;
+    background: #72f960;
+    border-bottom: 1px solid var(--border-light);
     padding: 1rem 0;
 }
 
@@ -74,7 +120,7 @@ header nav {
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #333;
+    color: var(--navy-blue);
 }
 
 .nav-links {
@@ -83,12 +129,12 @@ header nav {
 }
 
 .nav-links a {
-    color: #555;
+    color: var(--text-medium);
     font-weight: 500;
 }
 
 .nav-links a:hover {
-    color: #007bff;
+    color: var(--yellow-primary);
 }
 
 /* Footer */
@@ -96,8 +142,8 @@ footer {
     text-align: center;
     padding: 2rem 1rem;
     margin-top: 2rem;
-    border-top: 1px solid #eee;
-    color: #777;
+    border-top: 1px solid var(--border-light);
+    color: var(--text-light);
 }
 
 /* Hero Section (index.html) */
@@ -121,7 +167,7 @@ footer {
 
 .cta-button {
     display: inline-block;
-    background: #007bff;
+    background: var(--yellow-primary);
     color: #fff;
     padding: 1rem 2rem;
     border-radius: 5px;
@@ -130,12 +176,13 @@ footer {
 }
 
 .cta-button:hover {
-    background: #0056b3;
+    background: var(--yellow-dark);
+    color: #fff;
 }
 
 /* "Find Your Path" Section (index.html) */
 .path-section {
-    background: #f9f9f9;
+    background: var(--yellow-light);
     padding: 4rem 1rem;
     text-align: center;
 }
@@ -149,12 +196,12 @@ footer {
 
 .card {
     background: #fff;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-medium);
     border-radius: 8px;
     padding: 2rem;
     max-width: 400px;
     text-align: left;
-    color: #333;
+    color: var(--text-dark);
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
@@ -163,7 +210,7 @@ footer {
 }
 
 .card h3 {
-    color: #007bff;
+    color: var(--yellow-primary);
 }
 
 /* link to my journey (index.html) */
@@ -182,8 +229,12 @@ footer {
     width: 200px;
     height: 200px;
     border-radius: 50%; 
-    flex-shrink: 0; /* Prevents image from shrinking */
+    flex-shrink: 0;
+    background-image: url('../media/Julian-headshot.JPG');
+    background-size: cover;
+    background-position: center;
 }
+
 
 .personal-text {
     flex: 1; 
@@ -203,7 +254,7 @@ footer {
 
 /*  Page Header (for basics, hook, etc.) */
 .page-header {
-    background: #f4f4f4;
+    background: var(--yellow-light);
     padding: 2rem 1rem;
     text-align: center;
     margin-bottom: 3rem;
@@ -215,7 +266,7 @@ footer {
 
 .page-header p {
     font-size: 1.2rem;
-    color: #555;
+    color: var(--text-medium);
     margin-bottom: 0;
 }
 
@@ -244,13 +295,24 @@ footer {
     min-height: 250px;
 }
 
+.split-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
 /*  Feature Section (for hook.html) */
 .feature-section {
     padding: 4rem 1rem;
 }
 
 .feature-section.alt-bg {
-    background: #f9f9f9;
+    background: var(--green-light);
+}
+
+.feature-section:nth-child(even) {
+    background: var(--yellow-light);
 }
 
 .feature-container {
@@ -264,6 +326,13 @@ footer {
     min-height: 300px;
 }
 
+.feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
 .feature-text {
     flex: 1;
 }
@@ -274,9 +343,9 @@ footer {
 }
 
 .callout-box {
-    background: #f4f4f4;
-    border: 1px solid #ddd;
-    border-left: 5px solid #007bff; 
+    background: var(--yellow-light);
+    border: 1px solid var(--yellow-primary);
+    border-left: 5px solid var(--yellow-primary);
     border-radius: 8px;
     padding: 2rem;
     margin: 2rem auto;
@@ -284,7 +353,7 @@ footer {
 }
 
 .callout-box h3 {
-    color: #007bff;
+    color: var(--navy-blue);
     margin-bottom: 0.5rem;
 }
 
@@ -302,25 +371,8 @@ footer {
     text-align: center;
     padding: 2rem 0;
     margin-bottom: 2rem;
-    background: #f9f9f9;
+    background: var(--green-light);
     border-radius: 8px;
-}
-
-.video-placeholder {
-    width: 100%;
-    max-width: 800px; /* Limit video size */
-    margin: 1.5rem auto 0 auto;
-    background: #f0f0f0;
-    border: 1px dashed #ccc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #888;
-    font-weight: bold;
-    border-radius: 8px;
-    
-    /* This creates a 16:9 aspect ratio */
-    aspect-ratio: 16 / 9;
 }
 
 /* Single Post Layout (for my-journey.html)  */
@@ -329,14 +381,10 @@ footer {
     height: 350px;
     margin-bottom: 2rem;
     border-radius: 8px; 
-    /* Using the existing placeholder style classes */
-    background: #f0f0f0;
-    border: 1px dashed #ccc;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #888;
-    font-weight: bold;
+
 }
 
 .article-content h1 {
