@@ -16,21 +16,22 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <header>
-        <nav class="container">
-            <a href="index.html" class="logo">Pickle Your Game</a>
+    <header role="banner">
+        <nav class="container" role="navigation" aria-label="Main navigation">
+            <a href="index.html" class="logo" aria-label="Pickle Your Game Home">Pickle Your Game</a>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="basics.html">The Basics</a></li>
-                <li><a href="hook.html">The Hook</a></li>
-                <li><a href="get-started.html">Get Started</a></li>
-                <li><a href="my-journey.html">My Journey</a></li>
+                <li><a href="index.html" aria-label="Navigate to Home page">Home</a></li>
+                <li><a href="basics.html" aria-label="Navigate to The Basics page">The Basics</a></li>
+                <li><a href="hook.html" aria-label="Navigate to The Hook page">The Hook</a></li>
+                <li><a href="get-started.html" aria-label="Navigate to Get Started page">Get Started</a></li>
+                <li><a href="my-journey.html" aria-current="page" aria-label="My Journey page, current page">My Journey</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
+    <main id="main-content" role="main">
         <!-- re-use the .article-content class from basics.html-->
         <div class="container article-content">
 

@@ -20,6 +20,23 @@
     padding: 0;
 }
 
+/* Skip Link for Accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--navy-blue);
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    z-index: 100;
+    border-radius: 0 0 4px 0;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
@@ -67,19 +84,6 @@ a:hover {
 ul, ol {
     margin-bottom: 1.2rem;
     padding-left: 1.5rem; 
-}
-
-/* Placeholder styles for images */
-.blog-card-image {
-    background: #f0f0f0;
-    border: 1px dashed #ccc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #888;
-    font-weight: bold;
-    border-radius: 8px;
-    min-height: 200px;
 }
 
 .collage-image img {
@@ -454,5 +458,135 @@ footer {
     /* --- My Journey Page --- */
     .blog-grid {
         grid-template-columns: 1fr; /* Stacks blog cards */
+    }
+}
+
+/* Print Styles - Optimize for paper and minimize ink */
+@media print {
+    /* Reset colors to black and white for ink savings */
+    * {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    /* Hide non-essential elements */
+    header nav,
+    .skip-link,
+    footer,
+    .cta-button,
+    .video-placeholder,
+    iframe,
+    .callout-box .cta-button {
+        display: none !important;
+    }
+
+    /* Show page URL after links */
+    a[href]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        font-style: italic;
+    }
+
+    /* Don't show URL for internal links or skip links */
+    a[href^="#"]:after,
+    a[href^="/"]:after,
+    .logo:after {
+        content: "";
+    }
+
+    /* Page breaks */
+    h1, h2, h3 {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
+
+    img {
+        page-break-inside: avoid;
+        max-width: 100% !important;
+    }
+
+    p, li {
+        orphans: 3;
+        widows: 3;
+    }
+
+    section {
+        page-break-inside: avoid;
+    }
+
+    /* Ensure readable font sizes */
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+
+    h1 { font-size: 24pt; }
+    h2 { font-size: 18pt; }
+    h3 { font-size: 14pt; }
+
+    /* Add borders for visual separation without color */
+    .card,
+    .callout-box {
+        border: 2px solid black !important;
+        padding: 10pt;
+        margin: 10pt 0;
+    }
+
+    /* Ensure images print well */
+    .hero-collage,
+    .collage-image,
+    .split-image,
+    .feature-image {
+        display: block;
+        margin: 10pt 0;
+    }
+
+    /* Single column layout for print */
+    .layout-split,
+    .feature-container,
+    .personal-container,
+    .path-cards {
+        display: block !important;
+    }
+
+    .split-text,
+    .split-image,
+    .feature-text,
+    .feature-image,
+    .personal-text,
+    .card {
+        width: 100% !important;
+        margin: 10pt 0 !important;
+    }
+
+    /* Add page title at top */
+    body::before {
+        content: "Pickle Your Game - Printed from pickleyourgame.com";
+        display: block;
+        text-align: center;
+        font-size: 10pt;
+        padding-bottom: 10pt;
+        border-bottom: 1px solid black;
+        margin-bottom: 20pt;
+    }
+
+    /* Optimize container for print */
+    .container {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Remove background colors from sections */
+    .hero,
+    .path-section,
+    .feature-section,
+    .feature-section.alt-bg,
+    .page-header,
+    .video-section {
+        background: white !important;
+        padding: 10pt 0;
     }
 }
